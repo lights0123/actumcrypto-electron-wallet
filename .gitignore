@@ -1,0 +1,10 @@
+.DS_Store
+dist/
+node_modules/
+projectBack/
+.eslintignore
+.travis.yml
+.idea/
+*.iml
+appveyor.yml
+yarn-error.log
