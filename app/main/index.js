@@ -14,8 +14,6 @@ let mainWindow;
 
 function createWindow() {
 	mainWindow = new BrowserWindow({ width: 800, height: 600 });
-	console.log(__dirname);
-	console.log(join(__dirname, '../renderer/index.html'));
 	mainWindow.loadURL(`file://${join(__dirname, '../renderer/index.html')}`);
 
 	mainWindow.on('closed', () => {
