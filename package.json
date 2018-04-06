@@ -1,5 +1,5 @@
 {
-	"name": "actumcrypto-wallet",
+	"name": "actumcrypto-electron-wallet",
 	"version": "0.0.0",
 	"author": "lights0123 <me@lights0123.com>",
 	"description": "A wallet for the actumcrypto cryptocurrency",
@@ -10,8 +10,8 @@
 		"start": "electron ."
 	},
 	"build": {
-		"productName": "actumcrypto-wallet",
-		"appId": "org.simulatedgreg.electron-vue",
+		"productName": "actumcrypto-electron-wallet",
+		"appId": "com.lights0123.actumcrypto-electron-wallet",
 		"directories": {
 			"output": "dist"
 		},
