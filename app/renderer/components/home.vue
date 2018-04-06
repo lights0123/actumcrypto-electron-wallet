@@ -1,5 +1,5 @@
 <template>
-	<p>Home</p>
+	<p>Hometet</p>
 </template>
 
 <script>

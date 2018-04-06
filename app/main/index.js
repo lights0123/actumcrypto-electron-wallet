@@ -1,4 +1,5 @@
 import { app, BrowserWindow } from 'electron';
+import { client as electronConnect } from 'electron-connect';
 import { join } from 'path';
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer';
 
@@ -19,6 +20,7 @@ function createWindow() {
 	mainWindow.on('closed', () => {
 		mainWindow = null;
 	});
+	if (process.env.NODE_ENV !== 'production') electronConnect.create(mainWindow);
 }
 
 app.on('ready', createWindow);

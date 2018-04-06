@@ -1,7 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ElectronConnectWebpackPlugin = require('electron-connect-webpack-plugin');
+const { dependencies, devDependencies } = require('./package.json');
 
 module.exports = [
 	{
@@ -40,6 +42,7 @@ module.exports = [
 					options: {
 						presets: ['es2015'],
 						plugins: ['transform-runtime'],
+						cacheDirectory: true,
 					},
 				},
 				{
@@ -47,6 +50,7 @@ module.exports = [
 					// this handles .scss translation
 					use: [
 						{ loader: 'style-loader' },
+						MiniCssExtractPlugin.loader,
 						{
 							loader: 'css-loader',
 							options: {
@@ -69,7 +73,7 @@ module.exports = [
 						loader: 'url-loader',
 						query: {
 							limit: 10000,
-							name: 'imgs/[name].[ext]',
+							name: 'img/[name].[ext]',
 						},
 					},
 				},
@@ -86,13 +90,20 @@ module.exports = [
 			],
 		},
 		plugins: [
+			new MiniCssExtractPlugin({
+				filename: 'css/[name].css',
+			}),
 			new webpack.ExternalsPlugin('commonjs', [
 				'electron',
 			]),
 			new HtmlWebpackPlugin({
 				filename: 'index.html',
-				// For details on `!!` see https://webpack.github.io/docs/loaders.html#loader-order
-				template: '!!handlebars-loader!app/renderer/index.hbs',
+				template: 'app/renderer/index.html',
+			}),
+			new ElectronConnectWebpackPlugin({
+				path: __dirname,
+				logLevel: 0,
+				reload: true,
 			}),
 		],
 	},
@@ -101,7 +112,9 @@ module.exports = [
 		output: {
 			path: path.resolve(__dirname, './dist/main'),
 			filename: 'build.js',
+			libraryTarget: 'commonjs2',
 		},
+		externals: Object.keys({ ...dependencies, ...devDependencies } || {}),
 		module: {
 			rules: [
 				{
@@ -111,17 +124,6 @@ module.exports = [
 					loader: 'eslint-loader',
 					options: {
 						formatter: require('eslint-friendly-formatter'),
-					},
-				},
-				{
-					test: /\.vue$/,
-					loader: 'vue-loader',
-					options: {
-						extractCSS: true,
-						loaders: {
-							sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax=1',
-							scss: 'vue-style-loader!css-loader!sass-loader',
-						},
 					},
 				},
 				{
