@@ -3502,8 +3502,8 @@ electron-chromedriver@~1.8.0:
     extract-zip "^1.6.5"
 
 "electron-connect-webpack-plugin@https://github.com/lights0123/electron-connect-webpack-plugin":
-  version "0.1.1"
-  resolved "https://github.com/lights0123/electron-connect-webpack-plugin#3baf6db66e78a294d7079527e97be107ea2b85cb"
+  version "0.1.2"
+  resolved "https://github.com/lights0123/electron-connect-webpack-plugin#8a1da1203dd6a9bafa779d066cad3e8b5ad77f05"
 
 electron-connect@^0.6.3:
   version "0.6.3"
@@ -5859,7 +5859,7 @@ isurl@^1.0.0-alpha5:
     has-to-string-tag-x "^1.2.0"
     is-object "^1.0.1"
 
-jquery@x.*:
+jquery@^3.3.1, jquery@x.*:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
 
@@ -10451,10 +10451,6 @@ vue-template-es2015-compiler@^1.6.0:
 vue@^2.3.3:
   version "2.5.16"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.16.tgz#07edb75e8412aaeed871ebafa99f4672584a0085"
-
-vuex@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/vuex/-/vuex-3.0.1.tgz#e761352ebe0af537d4bb755a9b9dc4be3df7efd2"
 
 watchpack@^1.5.0:
   version "1.5.0"

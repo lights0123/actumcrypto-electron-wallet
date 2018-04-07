@@ -105,7 +105,23 @@ module.exports = [
 				logLevel: 0,
 				reload: true,
 			}),
+			new webpack.ProvidePlugin({
+				// jquery
+				$: 'jquery',
+				jQuery: 'jquery',
+				'window.jQuery': 'jquery',
+				semantic: 'semantic-ui-css',
+				Semantic: 'semantic-ui-css',
+				'semantic-ui': 'semantic-ui-css',
+			}),
 		],
+		resolve: {
+			extensions: ['.js', '.vue'],
+			alias: {
+				semantic: 'node_modules/semantic-ui-css/semantic.min.js',
+			},
+		},
+		target: 'electron-renderer',
 	},
 	{
 		entry: './app/main/index.js',
