@@ -1,6 +1,6 @@
 # actumcrypto-wallet
 
-> A wallet for the actumcrypto cryptocurrency
+> A wallet for ActumCrypto tokens
 
 #### Build Setup
 
